@@ -1,0 +1,83 @@
+<div class="text-center mt-5">
+  <div class="form-group d-flex flex-row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-2 col-sm-2 text-left">
+        <label for="exampleInputEmail1">Country</label>
+    </div>
+    <div class="col-md-4 col-sm-4 justify-content-start">
+        <select class="form-control" [(ngModel)]="selectedCountry"  (change)="getCountryStateList(selectedCountry)">
+          <option *ngFor="let country of countries" value="{{country}}">{{ country }}</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+  <div class="form-group d-flex flex-row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-2 col-sm-2 text-left">
+      <label for="exampleInputEmail1">State</label>
+    </div>
+    <div class="col-md-4 col-sm-4 justify-content-start">
+      <select class="form-control" [(ngModel)]="selectedState"  (change)="getStateCityList(selectedState)" >
+          <option *ngFor="let state of states;" value="{{state}}">{{ state }}</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+  <div class="form-group d-flex flex-row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-2 col-sm-2 text-left">
+      <label for="exampleInputEmail1">City</label>
+    </div>
+    <div class="col-md-4 col-sm-4 justify-content-start">
+      <select class="form-control" [(ngModel)]="selectedCity"  (change)="checkCountryStateCity(selectedCity)">
+          <option *ngFor="let city of cites;" value="{{city}}" >{{ city }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+  <div class="form-group d-flex flex-row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-2 col-sm-2">
+    </div>
+    <div class="col-md-4 col-sm-4 text-left">
+      <button type="submit" class="btn btn-primary" (click)="getAddress()" >Go</button>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+  
+
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <td>Country</td>
+              <td>State</td>
+              <td>City</td>
+              <td>District</td>
+              <td>Area</td>
+              <td>Zipcode</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let region of regions">
+              <td>{{region.country}}</td>
+              <td>{{region.state}}</td>
+              <td>{{region.city}}</td>
+              <td>{{region.district}}</td>
+              <td>{{region.area}}</td>
+              <td>{{region.zipcode}}</td>
+          </tr>
+      </tbody>
+  </table>
+
+</div>
